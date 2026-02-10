@@ -64,7 +64,7 @@ plotCNVResultsHD <- function(seuratObjHD,
   }
 
   if (denoise == TRUE) {
-    mat <- as.matrix(Seurat::GetAssay(seuratObjHD, "genomicScores")["data"])
+    mat <- as.matrix(Seurat::GetAssay(seuratObjHD, "genomicScores")$data)
     # Make chromosomes with few genomic windows appear bigger
     arms <- rownames(mat)
     arms_group <- stringr::str_extract(arms, "^[0-9XY]+\\.[pq]")
@@ -85,7 +85,7 @@ plotCNVResultsHD <- function(seuratObjHD,
     }))
     M <- t(M)
     } else {
-      mat <- as.matrix(Seurat::GetAssay(seuratObjHD, "rawGenomicScores")["data"])
+      mat <- as.matrix(Seurat::GetAssay(seuratObjHD, "rawGenomicScores")$data)
       # Make chromosomes with few genomic windows appear bigger
       arms <- rownames(mat)
       arms_group <- stringr::str_extract(arms, "^[0-9XY]+\\.[pq]")
