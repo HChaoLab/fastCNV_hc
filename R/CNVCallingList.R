@@ -47,11 +47,11 @@ CNVCallingList <- function(seuratList,
 ){
   LrawcountsByPatient <- lapply(seuratList, function(x) {
     if (!is.null(assay)) {
-      as.matrix(Seurat::GetAssay(x, assay = assay)["counts"])
+      as.matrix(Seurat::GetAssay(x, assay = assay)$counts)
     } else if ("AggregatedCounts" %in% Seurat::Assays(x)) {
-      as.matrix(Seurat::GetAssay(x, assay = "AggregatedCounts")["counts"])
+      as.matrix(Seurat::GetAssay(x, assay = "AggregatedCounts")$counts)
     } else {
-      as.matrix(Seurat::GetAssay(x, assay = Seurat::Assays(x)[1])["counts"])
+      as.matrix(Seurat::GetAssay(x, assay = Seurat::Assays(x)[1])$counts)
     } } )
 
   invisible(gc())
