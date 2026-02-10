@@ -99,7 +99,7 @@ Computing the CNV without a reference."))
 
   if (dim(Seurat::GetAssay(seuratObj, assay = assay))[1] < topNGenes) {topNGenes = as.numeric(dim(Seurat::GetAssay(seuratObj, assay = assay))[1])}
 
-  rawCounts <- as.matrix(Seurat::GetAssay(seuratObj, assay = assay)["counts"])
+  rawCounts <- as.matrix(Seurat::GetAssay(seuratObj, assay = assay)$counts)
   invisible(gc())
   commonGenes <- intersect(rownames(rawCounts),geneMetadata2$hgnc_symbol)
   rawCounts <- rawCounts[commonGenes,]
