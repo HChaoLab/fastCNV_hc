@@ -61,7 +61,7 @@ plotCNVResults <- function(seuratObj,
   }
 
   if (denoise == TRUE) {
-    mat <- as.matrix(Seurat::GetAssay(seuratObj, "genomicScores")["data"])
+    mat <- as.matrix(Seurat::GetAssay(seuratObj, "genomicScores")$data)
     arms <- rownames(mat)
 
     # define grouping variable (e.g. 1.p, 1.q, 13.q, etc.)
