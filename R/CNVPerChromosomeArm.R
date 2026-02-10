@@ -10,7 +10,7 @@
 
 
 CNVPerChromosomeArm <- function(seuratObj) {
-  genomicScores <- as.matrix(Seurat::GetAssay(seuratObj, assay = "genomicScores")["data"])
+  genomicScores <- as.matrix(Seurat::GetAssay(seuratObj, assay = "genomicScores")$data)
   window_names <- rownames(genomicScores)
 
   extract_chrom_arm <- function(window_name) {
